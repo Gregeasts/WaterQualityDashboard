@@ -1,0 +1,65 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9fbfd;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h4 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+#play-button {
+    background-color: #2980b9;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 2px;
+}
+.dash-table-container{
+    width:100%;
+}
+.maplibregl-ctrl-attrib {
+    position: absolute !important;
+    bottom: 10px !important;  /* move it up */
+    left: 10px !important;
+    z-index: 10; /* ensure it stays on top */
+}
+
+h4 {
+  margin-top: 0;
+  margin-bottom:10px;
+  padding: 0;
+}
+#play-button:hover {
+    background-color: #1c5980;
+}
+
+#location-info {
+    background-color: #ecf0f1;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 30px auto;
+    max-width: 700px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.dcc-control {
+    margin-bottom: 15px;
+}
+#time-slider {
+    margin-bottom: 0px !important;  /* Reduced from default */
+}
+
+/* Optional: tighten the whole control area above the map */
+.dash-controls {
+    padding-bottom: 10px !important;
+}
+#map {
+    margin-top: 0px !important;
+}
