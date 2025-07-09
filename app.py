@@ -1850,7 +1850,7 @@ def update_map(selected_index, mode, selected_test_types,selected_param,min_samp
             mapbox_style="open-street-map",
             mapbox_center={"lat": 50.5, "lon": -4.5},
             mapbox_zoom=7,
-            attribution=None ,
+           
             height=600,
             margin={"r": 0, "t": 0, "l": 0, "b": 0},
             annotations=[dict(
@@ -1926,7 +1926,6 @@ def update_map(selected_index, mode, selected_test_types,selected_param,min_samp
             mapbox_style="open-street-map",
             mapbox_center={"lat": 50.5, "lon": -4.5},
             mapbox_zoom=7,
-            attribution=None ,
             height=600,
             margin={"r": 0, "t": 0, "l": 0, "b": 0},
             annotations=[dict(
