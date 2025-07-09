@@ -8,8 +8,9 @@ import plotly.graph_objects as go
 from statsmodels.nonparametric.smoothers_lowess import lowess
 from collections import Counter
 import numpy as np
-from scipy.stats import rankdata
 import datetime
+import os
+print(f"PID: {os.getpid()}")
 cols = [
     'Orthophosphate, reactive as P (mg/l)', 'Temperature of Water (°C)',
     'Ammoniacal Nitrogen as N (mg/l)', 'Phosphorus, Total as P (mg/l)',
@@ -22,7 +23,7 @@ cols = [
 
 
 # Load data
-df = pd.read_csv("mappable (1).csv", parse_dates=["Date"])
+df = pd.read_parquet("mappable.parquet")
 # Split comma-separated test types and get unique trimmed entries
 # Flatten and split test types
 split_test_types = df['Test_Type'].dropna().str.lower().str.split(',').explode()
@@ -2111,4 +2112,4 @@ def display_location_data(clickData, selected_index, mode,selected_param):
     ])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
