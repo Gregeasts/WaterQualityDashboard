@@ -869,7 +869,7 @@ def update_comparison_graph(view_type, search, remove_flagged, selected_location
     fig = go.Figure()
 
     for loc_id in all_ids:
-        df_loc = df[df['Location_ID'] == loc_id].copy()
+        df_loc = df[df['Location_ID'] == loc_id]
         df_loc['Date'] = pd.to_datetime(df_loc['Date'])
         df_loc = df_loc.sort_values(by='Date')
 
@@ -1029,7 +1029,7 @@ def update_metric_graph(selected_metrics, search, remove_flagged, start_date, en
     if not location_id:
         return go.Figure()
 
-    filtered = df[df['Location_ID'] == location_id].sort_values(by='Date').copy()
+    filtered = df[df['Location_ID'] == location_id].sort_values(by='Date')
     filtered['Date'] = pd.to_datetime(filtered['Date'])
 
     # Filter by date range
@@ -1265,7 +1265,7 @@ def update_category_table(metric, search):
 
     try:
         # Clean and filter original df for matching test types
-        df_filtered = df[df['Test_Type'].notna()].copy()
+        df_filtered = df[df['Test_Type'].notna()]
         df_filtered['Test_Type_clean'] = df_filtered['Test_Type'].str.lower().str.strip()
 
         df_filtered = df_filtered[df_filtered['Test_Type_clean'].isin(test_type_set)]
@@ -1420,7 +1420,7 @@ def update_category_table1(metric, search):
 
     try:
         # Clean and filter original df for matching test types
-        df_filtered = df[df['Test_Type'].notna()].copy()
+        df_filtered = df[df['Test_Type'].notna()]
         df_filtered['Test_Type_clean'] = df_filtered['Test_Type'].str.lower().str.strip()
 
         df_filtered = df_filtered[df_filtered['Test_Type_clean'].isin(test_type_set)]
@@ -1500,7 +1500,7 @@ def update_over_time_avg_graph(metric, search):
         
         return go.Figure()
 
-    df_loc = df[(df['Location_ID'] == location_id) & (~df[Flagged]) & (df[metric].notna())].copy()
+    df_loc = df[(df['Location_ID'] == location_id) & (~df[Flagged]) & (df[metric].notna())]
 
     # Group by Month
     
@@ -1554,7 +1554,7 @@ def update_monthly_avg_graph(metric, search):
         
         return go.Figure()
 
-    df_loc = df[(df['Location_ID'] == location_id) & (~df[Flagged]) & (df[metric].notna())].copy()
+    df_loc = df[(df['Location_ID'] == location_id) & (~df[Flagged]) & (df[metric].notna())]
   
     # Group by Month
     
@@ -1812,7 +1812,7 @@ def update_map(selected_index, mode, selected_test_types,selected_param,min_samp
     if selected_test_types:
         pattern = '|'.join([fr'\b{t}\b' for t in selected_test_types])
         base_df = df[df['Test_Type'].str.contains(pattern, case=False, na=False, regex=True)]
-    else: base_df = df.copy()
+    else: base_df=df
     
     
     if base_df.empty:
@@ -1964,7 +1964,7 @@ def update_location_map(selected_test_types,min_sample_count,search):
     if selected_test_types:
         pattern = '|'.join([fr'\b{t}\b' for t in selected_test_types])
         base_df = location_info[location_info['Test_Type'].str.contains(pattern, case=False, na=False, regex=True)]
-    else: base_df = location_info.copy()
+    else: base_df = location_info
  
     
     base_df = base_df[base_df['Location_ID'] != location_id]
